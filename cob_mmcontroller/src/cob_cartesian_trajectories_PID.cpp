@@ -837,7 +837,7 @@ geometry_msgs::Twist cob_cartesian_trajectories::PIDController(const double dt, 
     
     // create twist
     // PD2
-    double P = 10.;
+    double P = 8.5;
     double T = 0.055; //1.0560; //0.055;
     double d = 0.3;   //0.9849; //0.3;
     twist.linear.x = P*((T*T/(dt*dt) + 2*d*T/dt + 1)*Error.vel.x() - (2*T*T/(dt*dt) + 2*d*T/dt)*Error_last.vel.x() - T*T/(dt*dt)*Error_last2.vel.x());
@@ -850,7 +850,7 @@ geometry_msgs::Twist cob_cartesian_trajectories::PIDController(const double dt, 
     d = 0.4;   //0.9537; //0.4;
     twist.angular.z = P*((T*T/(dt*dt) + 2*d*T/dt + 1)*Error.rot.z() - (2*T*T/(dt*dt) + 2*d*T/dt)*Error_last.rot.z() - T*T/(dt*dt)*Error_last2.rot.z());
     // P
-    P = 2.;
+    P = 1.;
     twist.linear.z = P*Error.vel.z();
     P = 1.;
     twist.angular.x = -(P*Error.rot.x());
